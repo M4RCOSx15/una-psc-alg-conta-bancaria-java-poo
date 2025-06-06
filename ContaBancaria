@@ -1,0 +1,32 @@
+package pscdaniel;
+
+import java.util.Scanner;
+
+public class ContaBancaria {
+    public static void main(String[] args) {
+        Conta Banco = new Conta();
+        Scanner leia = new Scanner(System.in);
+        int j,i=0;
+       do {
+         Banco.Setnome();
+         if(i==0){
+            Banco.GetApresentar();
+        }
+        if(i>0){
+           Banco.SetContaCriada();
+            Banco.SetOpcoes();
+        Banco.GetEscolha();
+        System.out.println("Gostaria de continuar [1] Sim ou [2] Não");
+        j = leia.nextInt();
+        }else{
+            Banco.SetOpcoes();
+        Banco.GetEscolha();
+        System.out.println("Gostaria de continuar [1] Sim ou [2] Não");
+        j = leia.nextInt();
+        }
+       
+        
+       i++;
+    } while (j!=2); 
+    }
+}
