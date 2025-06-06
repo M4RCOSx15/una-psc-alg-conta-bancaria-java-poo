@@ -1,0 +1,85 @@
+package pscdaniel;
+
+import java.util.Scanner;
+
+
+
+public class Conta {
+    Scanner leia = new Scanner(System.in);
+    private String nome;
+    private float saldo =0;
+    private int conta;
+    private float valor;
+    public int escolha;
+    private String contaexistente;
+ 
+
+
+
+    public void Setnome(){
+        System.out.println("Por gentileza informar o nome do cliente : ");
+        nome = leia.next();
+        System.out.println("Digite o número da conta do cliente : ");
+        conta = leia.nextInt();
+    }
+
+    public void SetContaCriada(){
+        System.out.println("Você já possui uma conta");
+        System.out.println("Você gostaria de acessar a sua conta ou criar uma nova? \n[A]Acessar \n[N]Nova conta");
+        contaexistente = leia.next();
+        if(contaexistente.equals("N")){
+            Setnome();
+            GetApresentar();
+        }
+
+    }
+  
+
+    public String GetApresentar(){
+        System.out.println("-----------------------------------------------");
+        System.out.println("               BOM DIA "+nome);
+        System.out.println("      Conta bancaria criada com sucesso   ");
+        System.out.println("-----------------------------------------------");
+    return "." ;}
+    
+    
+    
+    
+        public void SetOpcoes(){
+       
+        System.out.println("O que você deseja ?");
+        System.out.println("--[1]Ver saldo-- \n--[2]Depositar-- \n --[3]Sacar-- ");
+        escolha = leia.nextInt();
+    }
+
+    public String GetEscolha(){
+        switch (escolha) {
+            case 1:
+              System.out.println("O saldo dispónivel é : "+saldo);
+              System.out.println("Operação realizada com sucesso");
+                break;
+        
+           case 2 : 
+           System.out.println("Qual valor você deseja depositar?");
+           valor = leia.nextInt();
+           saldo += valor;
+           System.out.println("Deposito feito com sucesso");
+                break;
+            case 3 :
+            System.out.println("Qual valor você deseja sacar ? ");
+            valor = leia.nextInt();
+            if(valor>saldo){
+                System.out.println("Saldo insuficiente para realizar a operação.");
+                break;
+            }if(valor > 5000){
+                System.out.println("Valor do saque acima do permitido.");
+                break;
+            }else{
+                saldo-=valor;
+            }
+            
+        }
+        return "Processo finalizado ";
+    }
+
+}
